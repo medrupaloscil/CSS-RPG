@@ -1,0 +1,231 @@
+body {
+	margin: 0;
+	font-family: sans-serif;
+	counter-reset: posX;
+	background-color: #57606f;
+}
+input {
+	display: none;
+}
+.grid {
+	background-color: #34495e;
+	border: 5px solid #1e272e;
+	width: 320px;
+	height: 320px;
+	margin: 50px auto;
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	position: relative;
+}
+.grid:after {
+	position: absolute;
+	bottom: -30px;
+	font-size: 18px;
+	color: #fff;
+	width: 100%;
+	text-align: center;
+}
+.grid div {
+	height: 64px;
+	width: 64px;
+	background: url('tile.png');
+	background-size: 1024px 768px;
+}
+.grid *:nth-child(1), .grid *:nth-child(25) {
+	background-position: -256px 0;
+}
+.grid *:nth-child(7), .grid *:nth-child(9), .grid *:nth-child(12), .grid *:nth-child(14), .grid *:nth-child(17), .grid *:nth-child(19), .grid *:nth-child(22) {
+	background-position: -128px 0;
+}
+.grid *:nth-child(15) {
+	background-position: -256px 384px;
+}
+.controls {
+	margin: auto;
+	width: 192px;
+	height: 192px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(3, 1fr);
+	grid-template-areas:
+		". top ."
+		"left action right"
+		". bottom .";
+	justify-content: center;
+	align-items: center;
+}
+.controls > * {
+	height: 60px;
+	width: 60px;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 10px;
+	cursor: pointer;
+	position: relative;
+}
+.controls > *:hover {
+	opacity: 0.9;
+}
+.controls > *:nth-child(1) {
+	grid-area: top;
+}
+.controls > *:nth-child(2) {
+	grid-area: left;
+}
+.controls > *:nth-child(3) {
+	grid-area: right;
+}
+.controls > *:nth-child(4) {
+	grid-area: bottom;
+}
+.controls > *:nth-child(5) {
+	grid-area: action;
+	font-size: 30px;
+	display: none;
+}
+.controls > * label {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	display: none;
+}
+
+/* Position Player */
+.grid .player {
+	background-image: url('player.png');
+	background-size: contain;
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1;
+}
+#x2:checked ~ .grid .player {
+	left: 64px;
+}
+#x3:checked ~ .grid .player {
+	left: 128px;
+}
+#x4:checked ~ .grid .player {
+	left: 192px;
+}
+#x5:checked ~ .grid .player {
+	left: 256px;
+}
+#y2:checked ~ .grid .player {
+	top: 64px;
+}
+#y3:checked ~ .grid .player {
+	top: 128px;
+}
+#y4:checked ~ .grid .player {
+	top: 192px;
+}
+#y5:checked ~ .grid .player {
+	top: 256px;
+}
+
+/* Position other elements */
+.grid .key {
+	background-image: url('key.png');
+	background-size: contain;
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	z-index: 1;
+}
+#hasKey:checked ~ .grid .key {
+	display: none;
+}
+.grid .door {
+	background-image: url('closed-door.png');
+	background-size: contain;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+#hasKey:checked ~ .grid .door {
+	background-image: url('opened-door.png');
+}
+
+/* display controls */
+
+/* Top */
+#y2:checked ~ .controls *:nth-child(1) label:nth-of-type(1) {
+	display: block;
+}
+#y3:checked ~ .controls *:nth-child(1) label:nth-of-type(2) {
+	display: block;
+}
+#y4:checked ~ .controls *:nth-child(1) label:nth-of-type(3) {
+	display: block;
+}
+#x4:not(:checked) ~ #y5:checked ~ .controls *:nth-child(1) label:nth-of-type(4) {
+	display: block;
+}
+
+#x2:checked ~ .controls *:nth-child(2) label:nth-of-type(1) {
+	display: block;
+}
+#x3:checked ~ #y1:checked ~ .controls *:nth-child(2) label:nth-of-type(2) {
+	display: block;
+}
+#x4:checked ~ .controls *:nth-child(2) label:nth-of-type(3) {
+	display: block;
+}
+#x5:checked ~ #y2:not(:checked) ~ #y3:not(:checked) ~ #y4:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(4) {
+	display: block;
+}
+
+#x1:checked ~ #y1:checked ~ .controls *:nth-child(3) label:nth-of-type(1) {
+	display: block;
+}
+#x2:checked ~ .controls *:nth-child(3) label:nth-of-type(2) {
+	display: block;
+}
+#x3:checked ~ #y2:not(:checked) ~ #y3:not(:checked) ~ #y4:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(3) {
+	display: block;
+}
+#x4:checked ~ .controls *:nth-child(3) label:nth-of-type(4) {
+	display: block;
+}
+
+#x2:not(:checked) ~ #x4:not(:checked) ~ #y1:checked ~ .controls *:nth-child(4) label:nth-of-type(1) {
+	display: block;
+}
+#y2:checked ~ .controls *:nth-child(4) label:nth-of-type(2) {
+	display: block;
+}
+#y3:checked ~ .controls *:nth-child(4) label:nth-of-type(3) {
+	display: block;
+}
+#y4:checked ~ .controls *:nth-child(4) label:nth-of-type(4) {
+	display: block;
+}
+
+#hasKey:not(:checked) ~ #x1:checked ~ #y5:checked ~ .controls > *:nth-child(5) {
+	display: flex;
+}
+#hasKey:not(:checked) ~ #x1:checked ~ #y5:checked ~ .controls > *:nth-child(5) label {
+	display: block;
+}
+#x5:checked ~ #y2:checked ~ .controls *:nth-child(4) label:nth-of-type(5) {
+	display: block;
+}
+#x5:checked ~ #y4:checked ~ .controls *:nth-child(1) label:nth-of-type(5) {
+	display: block;
+}
+#hasKey:checked ~ #x4:checked ~ #y5:checked ~ .controls *:nth-child(3) label:nth-of-type(5) {
+	display: block;
+}
+
+#go:checked ~ .grid:after {
+	content: "Game Over, you felt in a hole !";
+}
+#finish:checked ~ .grid:after {
+	content: "Congratulations, you won !";
+}
+#go:checked ~ .controls > * > label, #finish:checked ~ .controls > * > label {
+	display: none !important;
+}
