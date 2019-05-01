@@ -9,21 +9,24 @@ input {
 }
 .grid {
 	background-color: #34495e;
-	border: 5px solid #1e272e;
-	width: 320px;
-	height: 320px;
-	margin: 50px auto;
+	border: 3px solid #1e272e;
+	width: 960px;
+	height: 640px;
+	margin: 20px auto;
 	display: grid;
-	grid-template-columns: repeat(5, 1fr);
+	grid-template-columns: repeat(15, 1fr);
 	position: relative;
 }
 .grid:after {
 	position: absolute;
-	bottom: -30px;
-	font-size: 18px;
+	font-size: 40px;
 	color: #fff;
 	width: 100%;
 	text-align: center;
+	height: 100%;
+	background-color: #222;
+	line-height: 640px;
+	z-index: 3;
 }
 .grid div {
 	height: 64px;
@@ -31,19 +34,40 @@ input {
 	background: url('tile.png');
 	background-size: 1024px 768px;
 }
-.grid *:nth-child(1), .grid *:nth-child(25) {
+.grid *:nth-child(1), .grid *:nth-child(150) {
 	background-position: -256px 0;
 }
-.grid *:nth-child(7), .grid *:nth-child(9), .grid *:nth-child(12), .grid *:nth-child(14), .grid *:nth-child(17), .grid *:nth-child(19), .grid *:nth-child(22) {
+.grid *:nth-child(17), .grid *:nth-child(21), .grid *:nth-child(22), .grid *:nth-child(23), .grid *:nth-child(24), .grid *:nth-child(25), .grid *:nth-child(26), .grid *:nth-child(27), .grid *:nth-child(28), .grid *:nth-child(29) {
 	background-position: -128px 0;
 }
-.grid *:nth-child(15) {
+.grid *:nth-child(32), .grid *:nth-child(47), .grid *:nth-child(62), .grid *:nth-child(63), .grid *:nth-child(64), .grid *:nth-child(79), .grid *:nth-child(94), .grid *:nth-child(109), .grid *:nth-child(122), .grid *:nth-child(123), .grid *:nth-child(124), .grid *:nth-child(137), .grid *:nth-child(91), .grid *:nth-child(92) {
+	background-position: -128px 0;
+}
+.grid *:nth-child(44), .grid *:nth-child(59), .grid *:nth-child(74), .grid *:nth-child(89), .grid *:nth-child(104), .grid *:nth-child(119), .grid *:nth-child(131), .grid *:nth-child(132), .grid *:nth-child(133), .grid *:nth-child(134), .grid *:nth-child(87), .grid *:nth-child(88), .grid *:nth-child(100), .grid *:nth-child(114), .grid *:nth-child(129), .grid *:nth-child(144) {
+	background-position: -128px 0;
+}
+.grid *:nth-child(51), .grid *:nth-child(52), .grid *:nth-child(53), .grid *:nth-child(54), .grid *:nth-child(55), .grid *:nth-child(56), .grid *:nth-child(57), .grid *:nth-child(66), .grid *:nth-child(68), .grid *:nth-child(81), .grid *:nth-child(82), .grid *:nth-child(83), .grid *:nth-child(97), .grid *:nth-child(112), .grid *:nth-child(127), .grid *:nth-child(141) {
+	background-position: -128px 0;
+}
+.grid *:nth-child(33) {
+	background-position: -256px -448px;
+}
+.grid *:nth-child(34) {
+	background-position: -320px -448px;
+}
+.grid *:nth-child(48) {
+	background-position: -256px -512px;
+}
+.grid *:nth-child(49) {
+	background-position: -320px -512px;
+}
+.grid *:nth-child(69), .grid *:nth-child(103), .grid *:nth-child(110), .grid *:nth-child(120) {
 	background-position: -256px 384px;
 }
 .controls {
 	margin: auto;
-	width: 192px;
-	height: 192px;
+	width: 120px;
+	height: 120px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-template-rows: repeat(3, 1fr);
@@ -55,8 +79,8 @@ input {
 	align-items: center;
 }
 .controls > * {
-	height: 60px;
-	width: 60px;
+	height: 40px;
+	width: 40px;
 	background-color: #fff;
 	display: flex;
 	justify-content: center;
@@ -94,6 +118,7 @@ input {
 
 /* Position Player */
 .grid .player {
+	transition-duration: 0.1s;
 	background-image: url('player.png');
 	background-size: contain;
 	position: absolute;
@@ -105,25 +130,85 @@ input {
 	left: 64px;
 }
 #x3:checked ~ .grid .player {
-	left: 128px;
+	left: calc(64px * 2);
 }
 #x4:checked ~ .grid .player {
-	left: 192px;
+	left: calc(64px * 3);
 }
 #x5:checked ~ .grid .player {
-	left: 256px;
+	left: calc(64px * 4);
+}
+#x6:checked ~ .grid .player {
+	left: calc(64px * 5);
+}
+#x7:checked ~ .grid .player {
+	left: calc(64px * 6);
+}
+#x8:checked ~ .grid .player {
+	left: calc(64px * 7);
+}
+#x9:checked ~ .grid .player {
+	left: calc(64px * 8);
+}
+#x10:checked ~ .grid .player {
+	left: calc(64px * 9);
+}
+#x11:checked ~ .grid .player {
+	left: calc(64px * 10);
+}
+#x12:checked ~ .grid .player {
+	left: calc(64px * 11);
+}
+#x13:checked ~ .grid .player {
+	left: calc(64px * 12);
+}
+#x14:checked ~ .grid .player {
+	left: calc(64px * 13);
+}
+#x15:checked ~ .grid .player {
+	left: calc(64px * 14);
 }
 #y2:checked ~ .grid .player {
 	top: 64px;
 }
 #y3:checked ~ .grid .player {
-	top: 128px;
+	top: calc(64px * 2);
 }
 #y4:checked ~ .grid .player {
-	top: 192px;
+	top: calc(64px * 3);
 }
 #y5:checked ~ .grid .player {
-	top: 256px;
+	top: calc(64px * 4);
+}
+#y6:checked ~ .grid .player {
+	top: calc(64px * 5);
+}
+#y7:checked ~ .grid .player {
+	top: calc(64px * 6);
+}
+#y8:checked ~ .grid .player {
+	top: calc(64px * 7);
+}
+#y9:checked ~ .grid .player {
+	top: calc(64px * 8);
+}
+#y10:checked ~ .grid .player {
+	top: calc(64px * 9);
+}
+#y11:checked ~ .grid .player {
+	top: calc(64px * 10);
+}
+#y12:checked ~ .grid .player {
+	top: calc(64px * 11);
+}
+#y13:checked ~ .grid .player {
+	top: calc(64px * 12);
+}
+#y14:checked ~ .grid .player {
+	top: calc(64px * 13);
+}
+#y15:checked ~ .grid .player {
+	top: calc(64px * 14);
 }
 
 /* Position other elements */
@@ -155,71 +240,204 @@ input {
 #y2:checked ~ .controls *:nth-child(1) label:nth-of-type(1) {
 	display: block;
 }
-#y3:checked ~ .controls *:nth-child(1) label:nth-of-type(2) {
+#x6:not(:checked) ~ #x7:not(:checked) ~ #x8:not(:checked) ~ #x9:not(:checked) ~ #x10:not(:checked) ~ #x11:not(:checked) ~ #x12:not(:checked) ~ #x13:not(:checked) ~ #y3:checked ~ .controls *:nth-child(1) label:nth-of-type(2) {
 	display: block;
 }
 #y4:checked ~ .controls *:nth-child(1) label:nth-of-type(3) {
 	display: block;
 }
-#x4:not(:checked) ~ #y5:checked ~ .controls *:nth-child(1) label:nth-of-type(4) {
+#x10:not(:checked) ~ #x11:not(:checked) ~ #x12:not(:checked) ~ #y5:checked ~ .controls *:nth-child(1) label:nth-of-type(4) {
+	display: block;
+}
+#x2:not(:checked) ~ #x3:not(:checked) ~ #y6:checked ~ .controls *:nth-child(1) label:nth-of-type(5) {
+	display: block;
+}
+#x6:not(:checked) ~ #x8:not(:checked) ~ #x12:not(:checked) ~ #y7:checked ~ .controls *:nth-child(1) label:nth-of-type(6) {
+	display: block;
+}
+#x1:not(:checked) ~ #x2:not(:checked) ~ #x10:not(:checked) ~ #y8:checked ~ .controls *:nth-child(1) label:nth-of-type(7) {
+	display: block;
+}
+#y9:checked ~ .controls *:nth-child(1) label:nth-of-type(8) {
+	display: block;
+}
+#x3:not(:checked) ~ #x4:not(:checked) ~ #x11:not(:checked) ~ #x12:not(:checked) ~ #x13:not(:checked) ~ #x14:not(:checked) ~ #y10:checked ~ .controls *:nth-child(1) label:nth-of-type(9) {
 	display: block;
 }
 
+/* Left */
 #x2:checked ~ .controls *:nth-child(2) label:nth-of-type(1) {
 	display: block;
 }
-#x3:checked ~ #y1:checked ~ .controls *:nth-child(2) label:nth-of-type(2) {
+#x3:checked ~ #y2:not(:checked) ~ #y7:not(:checked) ~ #y10:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(2) {
 	display: block;
 }
 #x4:checked ~ .controls *:nth-child(2) label:nth-of-type(3) {
 	display: block;
 }
-#x5:checked ~ #y2:not(:checked) ~ #y3:not(:checked) ~ #y4:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(4) {
+#x5:checked ~ #y5:not(:checked) ~ #y6:not(:checked) ~ #y7:not(:checked) ~ #y9:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(4) {
+	display: block;
+}
+#x6:checked ~ .controls *:nth-child(2) label:nth-of-type(5) {
+	display: block;
+}
+#x7:checked ~ #y10:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(6) {
+	display: block;
+}
+#x8:checked ~ #y7:not(:checked) ~ #y8:not(:checked) ~ #y9:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(7) {
+	display: block;
+}
+#x9:checked ~ #y6:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(8) {
+	display: block;
+}
+#x10:checked ~ #y8:not(:checked) ~ #y9:not(:checked) ~ #y10:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(9) {
+	display: block;
+}
+#x11:checked ~ #y7:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(10) {
+	display: block;
+}
+#x12:checked ~ .controls *:nth-child(2) label:nth-of-type(11) {
+	display: block;
+}
+#x13:checked ~ #y4:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(12) {
+	display: block;
+}
+#x14:checked ~ .controls *:nth-child(2) label:nth-of-type(13) {
+	display: block;
+}
+#x15:checked ~ #y2:not(:checked) ~ #y3:not(:checked) ~ #y4:not(:checked) ~ #y5:not(:checked) ~ #y6:not(:checked) ~ #y7:not(:checked) ~ #y9:not(:checked) ~ .controls *:nth-child(2) label:nth-of-type(14) {
 	display: block;
 }
 
-#x1:checked ~ #y1:checked ~ .controls *:nth-child(3) label:nth-of-type(1) {
+/* Right */
+#x1:checked ~ #y2:not(:checked) ~ #y3:not(:checked) ~ #y4:not(:checked) ~ #y5:not(:checked) ~ #y9:not(:checked) ~ #y10:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(1) {
 	display: block;
 }
 #x2:checked ~ .controls *:nth-child(3) label:nth-of-type(2) {
 	display: block;
 }
-#x3:checked ~ #y2:not(:checked) ~ #y3:not(:checked) ~ #y4:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(3) {
+#x3:checked ~ #y6:not(:checked) ~ #y7:not(:checked) ~ #y8:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(3) {
 	display: block;
 }
 #x4:checked ~ .controls *:nth-child(3) label:nth-of-type(4) {
 	display: block;
 }
+#x5:checked ~ #y2:not(:checked) ~ #y4:not(:checked) ~ #y5:not(:checked) ~ #y6:not(:checked) ~ #y10:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(5) {
+	display: block;
+}
+#x6:checked ~ #y7:not(:checked) ~ #y8:not(:checked) ~ #y9:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(6) {
+	display: block;
+}
+#x7:checked ~ .controls *:nth-child(3) label:nth-of-type(7) {
+	display: block;
+}
+#x8:checked ~ #y8:not(:checked) ~ #y9:not(:checked) ~ #y10:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(8) {
+	display: block;
+}
+#x9:checked ~ #y7:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(9) {
+	display: block;
+}
+#x10:checked ~ #y9:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(10) {
+	display: block;
+}
+#x11:checked ~ #y6:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(11) {
+	display: block;
+}
+#x12:checked ~ .controls *:nth-child(3) label:nth-of-type(12) {
+	display: block;
+}
+#x13:checked ~ #y2:not(:checked) ~ #y3:not(:checked) ~ #y4:not(:checked) ~ #y5:not(:checked) ~ #y6:not(:checked) ~ #y7:not(:checked) ~ #y8:not(:checked) ~ #y9:not(:checked) ~ .controls *:nth-child(3) label:nth-of-type(13) {
+	display: block;
+}
+#x14:checked ~ .controls *:nth-child(3) label:nth-of-type(14) {
+	display: block;
+}
 
-#x2:not(:checked) ~ #x4:not(:checked) ~ #y1:checked ~ .controls *:nth-child(4) label:nth-of-type(1) {
+/* Bottom */
+#x2:not(:checked) ~ #x6:not(:checked) ~ #x7:not(:checked) ~ #x8:not(:checked) ~ #x9:not(:checked) ~ #x10:not(:checked) ~ #x11:not(:checked) ~ #x12:not(:checked) ~ #x13:not(:checked) ~ #x14:not(:checked) ~ #y1:checked ~ .controls *:nth-child(4) label:nth-of-type(1) {
 	display: block;
 }
 #y2:checked ~ .controls *:nth-child(4) label:nth-of-type(2) {
 	display: block;
 }
-#y3:checked ~ .controls *:nth-child(4) label:nth-of-type(3) {
+#x6:not(:checked) ~ #x7:not(:checked) ~ #x8:not(:checked) ~ #x9:not(:checked) ~ #x10:not(:checked) ~ #x11:not(:checked) ~ #x12:not(:checked) ~ #y3:checked ~ .controls *:nth-child(4) label:nth-of-type(3) {
 	display: block;
 }
 #y4:checked ~ .controls *:nth-child(4) label:nth-of-type(4) {
 	display: block;
 }
+#x12:not(:checked) ~ #x13:not(:checked) ~ #y5:checked ~ .controls *:nth-child(4) label:nth-of-type(5) {
+	display: block;
+}
+#x1:not(:checked) ~ #x2:not(:checked) ~ #x10:not(:checked) ~ #y6:checked ~ .controls *:nth-child(4) label:nth-of-type(6) {
+	display: block;
+}
+#x9:not(:checked) ~ #y7:checked ~ .controls *:nth-child(4) label:nth-of-type(7) {
+	display: block;
+}
+#x2:not(:checked) ~ #x3:not(:checked) ~ #x11:not(:checked) ~ #x12:not(:checked) ~ #x13:not(:checked) ~ #y8:checked ~ .controls *:nth-child(4) label:nth-of-type(8) {
+	display: block;
+}
+#x6:not(:checked) ~ #y9:checked ~ .controls *:nth-child(4) label:nth-of-type(9) {
+	display: block;
+}
+#y10:checked ~ .controls *:nth-child(4) label:nth-of-type(10) {
+	display: block;
+}
 
-#hasKey:not(:checked) ~ #x1:checked ~ #y5:checked ~ .controls > *:nth-child(5) {
+/* Display key and labels */
+#hasKey:not(:checked) ~ #x1:checked ~ #y10:checked ~ .controls > *:nth-child(5) {
 	display: flex;
 }
-#hasKey:not(:checked) ~ #x1:checked ~ #y5:checked ~ .controls > *:nth-child(5) label {
+#hasKey:not(:checked) ~ #x1:checked ~ #y10:checked ~ .controls > *:nth-child(5) label {
 	display: block;
 }
-#x5:checked ~ #y2:checked ~ .controls *:nth-child(4) label:nth-of-type(5) {
-	display: block;
-}
-#x5:checked ~ #y4:checked ~ .controls *:nth-child(1) label:nth-of-type(5) {
-	display: block;
-}
-#hasKey:checked ~ #x4:checked ~ #y5:checked ~ .controls *:nth-child(3) label:nth-of-type(5) {
+#hasKey:checked ~ #x14:checked ~ #y10:checked ~ .controls *:nth-child(3) label:nth-of-type(16) {
 	display: block;
 }
 
+/* Handle Game Overs */
+#x5:checked ~ #y9:checked ~ .controls *:nth-child(1) label:nth-of-type(15) {
+	display: block;
+}
+#x9:checked ~ #y6:checked ~ .controls *:nth-child(1) label:nth-of-type(15) {
+	display: block;
+}
+#x13:checked ~ #y8:checked ~ .controls *:nth-child(1) label:nth-of-type(15) {
+	display: block;
+}
+#x15:checked ~ #y9:checked ~ .controls *:nth-child(1) label:nth-of-type(15) {
+	display: block;
+}
+#x5:checked ~ #y3:checked ~ .controls *:nth-child(2) label:nth-of-type(15) {
+	display: block;
+}
+#x5:checked ~ #y4:checked ~ .controls *:nth-child(2) label:nth-of-type(15) {
+	display: block;
+}
+#x6:checked ~ #y8:checked ~ .controls *:nth-child(2) label:nth-of-type(15) {
+	display: block;
+}
+#x10:checked ~ #y5:checked ~ .controls *:nth-child(2) label:nth-of-type(15) {
+	display: block;
+}
+#x12:checked ~ #y7:checked ~ .controls *:nth-child(3) label:nth-of-type(15) {
+	display: block;
+}
+#x3:checked ~ #y2:checked ~ .controls *:nth-child(4) label:nth-of-type(15) {
+	display: block;
+}
+#x4:checked ~ #y2:checked ~ .controls *:nth-child(4) label:nth-of-type(15) {
+	display: block;
+}
+#x5:checked ~ #y7:checked ~ .controls *:nth-child(4) label:nth-of-type(15) {
+	display: block;
+}
+#x15:checked ~ #y7:checked ~ .controls *:nth-child(4) label:nth-of-type(15) {
+	display: block;
+}
+
+/* End of Game */
 #go:checked ~ .grid:after {
 	content: "Game Over, you felt in a hole !";
 }
