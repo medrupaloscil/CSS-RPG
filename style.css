@@ -33,36 +33,44 @@ input {
 	width: 64px;
 	background: url('tile.png');
 	background-size: 1024px 768px;
+	--x: 0;
+	--y: 0;
+	background-position: calc(-64px * var(--x)) calc(-64px * var(--y));
 }
 .grid *:nth-child(1), .grid *:nth-child(150) {
-	background-position: -256px 0;
+	--x: 4;
 }
 .grid *:nth-child(17), .grid *:nth-child(21), .grid *:nth-child(22), .grid *:nth-child(23), .grid *:nth-child(24), .grid *:nth-child(25), .grid *:nth-child(26), .grid *:nth-child(27), .grid *:nth-child(28), .grid *:nth-child(29) {
-	background-position: -128px 0;
+	--x: 2;
 }
 .grid *:nth-child(32), .grid *:nth-child(47), .grid *:nth-child(62), .grid *:nth-child(63), .grid *:nth-child(64), .grid *:nth-child(79), .grid *:nth-child(94), .grid *:nth-child(109), .grid *:nth-child(122), .grid *:nth-child(123), .grid *:nth-child(124), .grid *:nth-child(137), .grid *:nth-child(91), .grid *:nth-child(92) {
-	background-position: -128px 0;
+	--x: 2;
 }
 .grid *:nth-child(44), .grid *:nth-child(59), .grid *:nth-child(74), .grid *:nth-child(89), .grid *:nth-child(104), .grid *:nth-child(119), .grid *:nth-child(131), .grid *:nth-child(132), .grid *:nth-child(133), .grid *:nth-child(134), .grid *:nth-child(87), .grid *:nth-child(88), .grid *:nth-child(100), .grid *:nth-child(114), .grid *:nth-child(129), .grid *:nth-child(144) {
-	background-position: -128px 0;
+	--x: 2;
 }
 .grid *:nth-child(51), .grid *:nth-child(52), .grid *:nth-child(53), .grid *:nth-child(54), .grid *:nth-child(55), .grid *:nth-child(56), .grid *:nth-child(57), .grid *:nth-child(66), .grid *:nth-child(68), .grid *:nth-child(81), .grid *:nth-child(82), .grid *:nth-child(83), .grid *:nth-child(97), .grid *:nth-child(112), .grid *:nth-child(127), .grid *:nth-child(141) {
-	background-position: -128px 0;
+	--x: 2;
 }
 .grid *:nth-child(33) {
-	background-position: -256px -448px;
+	--x: 4;
+	--y: 7;
 }
 .grid *:nth-child(34) {
-	background-position: -320px -448px;
+	--x: 5;
+	--y: 7;
 }
 .grid *:nth-child(48) {
-	background-position: -256px -512px;
+	--x: 4;
+	--y: 8;
 }
 .grid *:nth-child(49) {
-	background-position: -320px -512px;
+	--x: 5;
+	--y: 8;
 }
 .grid *:nth-child(69), .grid *:nth-child(103), .grid *:nth-child(110), .grid *:nth-child(120) {
-	background-position: -256px 384px;
+	--x: 4;
+	--y: 6;
 }
 .controls {
 	margin: auto;
@@ -118,97 +126,85 @@ input {
 
 /* Position Player */
 .grid .player {
-	transition-duration: 0.1s;
 	background-image: url('player.png');
 	background-size: contain;
 	position: absolute;
 	left: 0;
 	top: 0;
 	z-index: 1;
+	--x: 0;
+	--y: 0;
+	left: calc(64px * var(--x));
+	top: calc(64px * var(--y));
 }
 #x2:checked ~ .grid .player {
-	left: 64px;
+	--x: 1;
 }
 #x3:checked ~ .grid .player {
-	left: calc(64px * 2);
+	--x: 2;
 }
 #x4:checked ~ .grid .player {
-	left: calc(64px * 3);
+	--x: 3;
 }
 #x5:checked ~ .grid .player {
-	left: calc(64px * 4);
+	--x: 4;
 }
 #x6:checked ~ .grid .player {
-	left: calc(64px * 5);
+	--x: 5;
 }
 #x7:checked ~ .grid .player {
-	left: calc(64px * 6);
+	--x: 6;
 }
 #x8:checked ~ .grid .player {
-	left: calc(64px * 7);
+	--x: 7;
 }
 #x9:checked ~ .grid .player {
-	left: calc(64px * 8);
+	--x: 8;
 }
 #x10:checked ~ .grid .player {
-	left: calc(64px * 9);
+	--x: 9;
 }
 #x11:checked ~ .grid .player {
-	left: calc(64px * 10);
+	--x: 10;
 }
 #x12:checked ~ .grid .player {
-	left: calc(64px * 11);
+	--x: 11;
 }
 #x13:checked ~ .grid .player {
-	left: calc(64px * 12);
+	--x: 12;
 }
 #x14:checked ~ .grid .player {
-	left: calc(64px * 13);
+	--x: 13;
 }
 #x15:checked ~ .grid .player {
-	left: calc(64px * 14);
+	--x: 14;
 }
 #y2:checked ~ .grid .player {
-	top: 64px;
+	--y: 1;
 }
 #y3:checked ~ .grid .player {
-	top: calc(64px * 2);
+	--y: 2;
 }
 #y4:checked ~ .grid .player {
-	top: calc(64px * 3);
+	--y: 3;
 }
 #y5:checked ~ .grid .player {
-	top: calc(64px * 4);
+	--y: 4;
 }
 #y6:checked ~ .grid .player {
-	top: calc(64px * 5);
+	--y: 5;
 }
 #y7:checked ~ .grid .player {
-	top: calc(64px * 6);
+	--y: 6;
 }
 #y8:checked ~ .grid .player {
-	top: calc(64px * 7);
+	--y: 7;
 }
 #y9:checked ~ .grid .player {
-	top: calc(64px * 8);
+	--y: 8;
 }
 #y10:checked ~ .grid .player {
-	top: calc(64px * 9);
-}
-#y11:checked ~ .grid .player {
-	top: calc(64px * 10);
-}
-#y12:checked ~ .grid .player {
-	top: calc(64px * 11);
-}
-#y13:checked ~ .grid .player {
-	top: calc(64px * 12);
-}
-#y14:checked ~ .grid .player {
-	top: calc(64px * 13);
-}
-#y15:checked ~ .grid .player {
-	top: calc(64px * 14);
+	--y: 9;
 }
 
 /* Position other elements */
@@ -234,7 +230,7 @@ input {
 	background-image: url('opened-door.png');
 }
 
-/* display controls */
+/* Display controls */
 
 /* Top */
 #y2:checked ~ .controls *:nth-child(1) label:nth-of-type(1) {
@@ -444,6 +440,7 @@ input {
 #finish:checked ~ .grid:after {
 	content: "Congratulations, you won !";
 }
+/* Disable controls if the game is over */
 #go:checked ~ .controls > * > label, #finish:checked ~ .controls > * > label {
 	display: none !important;
 }
